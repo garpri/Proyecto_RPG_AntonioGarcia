@@ -51,7 +51,7 @@ public abstract class Personaje {
      */
     public void recibirDano(int dano) {
         this.vida = this.vida - dano;
-        // FIX BUG CRÍTICO: la vida no puede ser negativa
+        
         if (this.vida < 0) {
             this.vida = 0;
         }
