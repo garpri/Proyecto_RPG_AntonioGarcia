@@ -1,3 +1,6 @@
+/**
+ * Clase padre que representa a un personaje del juego.
+ */
 public abstract class Personaje {
 
     private String nombre;
@@ -6,6 +9,12 @@ public abstract class Personaje {
     private int nivel;
     private Arma arma;
 
+    /**
+     * Crea un nuevo personaje.
+     * @param nombre El nombre del personaje.
+     * @param vida Los puntos de vida iniciales.
+     * @param nivel El nivel del personaje.
+     */
     public Personaje(String nombre, int vida, int nivel) {
         this.nombre = nombre;
         this.vida = vida;
@@ -14,8 +23,16 @@ public abstract class Personaje {
         this.arma = null;
     }
 
+    /**
+     * Ataca a un enemigo. Cada subclase lo implementa distinto.
+     * @param enemigo El personaje que recibe el ataque.
+     */
     public abstract void atacar(Personaje enemigo);
 
+    /**
+     * Resta vida al personaje. La vida nunca baja de 0.
+     * @param dano La cantidad de daño recibido.
+     */
     public void recibirDano(int dano) {
         this.vida = this.vida - dano;
         if (this.vida < 0) {
@@ -23,6 +40,10 @@ public abstract class Personaje {
         }
     }
 
+    /**
+     * Equipa un arma al personaje.
+     * @param arma El arma a equipar.
+     */
     public void equiparArma(Arma arma) {
         this.arma = arma;
         System.out.println(nombre + " ha equipado: " + arma.getNombre());
